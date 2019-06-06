@@ -11,7 +11,7 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext ctx) {
-    return Center(
+    return Scaffold(body: Center(
         child: PagewiseListView(
           pageSize: 10,
           itemBuilder: (context, entry, index) {
@@ -31,6 +31,6 @@ class NewsScreen extends StatelessWidget {
             return NewCard(item: _news[index]);
           },
         )*/
-    );
+    ));
   }
 }

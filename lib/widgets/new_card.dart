@@ -1,3 +1,4 @@
+import 'package:causedupeuple/screens/read_screen.dart';
 import 'package:causedupeuple/utils/new_item.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -14,7 +15,7 @@ class NewCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          print("pressed");
+          Navigator.push(ctx, MaterialPageRoute(builder: (ctx) => ReadScreen(item: this.item)));
         },
         child: Column(
           children: <Widget>[
