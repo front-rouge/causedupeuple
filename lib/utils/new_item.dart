@@ -25,8 +25,18 @@ class NewItem {
     res = res.replaceAll(RegExp(r"<[^>]*>"), "");
     res = res.replaceAll("\n", "");
     res = res.trim();
-    res = res.substring(0, this.content.length > 120 ? 120 : this.content.length);
+    res = res.substring(0, res.length > 120 ? 120 : res.length);
     res += "...";
     return res;
+  }
+
+  String getDate() {
+    final today = DateTime.now();
+
+    if (date.day == today.day && date.year == today.year && date.month == today.month) {
+      return "${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}";
+    }
+    return "${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}";
+
   }
 }

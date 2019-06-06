@@ -1,35 +1,36 @@
 import 'package:causedupeuple/utils/fetch_news.dart';
-import 'package:causedupeuple/utils/new_item.dart';
 import 'package:causedupeuple/widgets/new_card.dart';
+import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatelessWidget {
+  final Text title;
   final int categoryId;
-  final news = fetchNews();
 
-  NewsScreen({Key key, @required this.categoryId}) : super(key: key);
+  NewsScreen({Key key, @required this.categoryId, @required this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext ctx) {
     return Center(
-        child: FutureBuilder<List<NewItem>>(
-      future: news,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          var datas = snapshot.data;
-          if (this.categoryId > 0) {
-            datas = datas.where((item) => item.categories.contains(this.categoryId)).toList();
-          }
-          var widgets = List<Widget>();
-          for (var item in datas) {
-            widgets.add(NewCard(item: item));
-          }
-          return ListView(children: widgets);
-        } else if (snapshot.hasError) {
-          return Text("${snapshot.error}");
-        }
-
-        return CircularProgressIndicator();
-      },
-    ));
+        child: PagewiseListView(
+          pageSize: 10,
+          itemBuilder: (context, entry, index) {
+            return NewCard(item: entry);
+  },
+          pageFuture: (pageIndex) {
+            return fetchNews(this.categoryId, pageIndex + 1);
+          },
+        )
+        /*ListView.builder(
+          itemCount: _news.length,
+          itemBuilder: (BuildContext context, int index) {
+            print(_news.length);
+            if (_news.length == 0) {
+              return CircularProgressIndicator();
+            }
+            return NewCard(item: _news[index]);
+          },
+        )*/
+    );
   }
 }
