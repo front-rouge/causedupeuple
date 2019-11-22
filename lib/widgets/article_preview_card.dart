@@ -17,7 +17,10 @@ class ArticlePreviewCard extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(16.0),
-              child: Text("TITLE"),
+              child: Text(
+                "TITLE",
+                style: Theme.of(context).textTheme.title,
+              ),
             ),
             ArticleHeaderImage(
               srcUrl: "http://via.placeholder.com/640x360",
@@ -29,7 +32,10 @@ class ArticlePreviewCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("lorem ipsum sit amet"),
+                  Text(
+                    "lorem ipsum sit amet",
+                    style: Theme.of(context).textTheme.body1,
+                  ),
                   Divider(),
                   Row(
                     mainAxisSize: MainAxisSize.max,

@@ -9,7 +9,16 @@ class CdpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'La Cause du Peuple',
-      theme: ThemeData(),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        iconTheme: IconThemeData(color: Colors.black),
+        primaryColor: Colors.red,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        iconTheme: IconThemeData(color: Colors.white),
+        primaryColor: Colors.red[900],
+      ),
       home: HomeScreen()
     );
   }
