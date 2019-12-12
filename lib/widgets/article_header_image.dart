@@ -19,7 +19,7 @@ class ArticleHeaderImage extends StatelessWidget  {
         child: Image(
           image: CachedNetworkImageProvider(srcUrl),
           fit: BoxFit.fitWidth,
-          height: (srcHeight * ((mqSize.width - 16) / srcWidth)),
+          height: (srcHeight * ((mqSize.width) / srcWidth)),
         )
       )
     );
