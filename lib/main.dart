@@ -16,11 +16,13 @@ class CdpApp extends StatelessWidget {
         brightness: Brightness.light,
         iconTheme: IconThemeData(color: Colors.black),
         primaryColor: Colors.red,
+        accentColor: Colors.redAccent
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         iconTheme: IconThemeData(color: Colors.white),
         primaryColor: Colors.red[900],
+        accentColor: Colors.redAccent[700]
       ),
       home: BlocProvider(
         create: (context) => ArticleBloc(client: Client())..add(ArticleFetch()),

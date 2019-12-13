@@ -1,4 +1,5 @@
 import 'package:causedupeuple/models/article_model.dart';
+import 'package:causedupeuple/screens/detail_screen.dart';
 import 'package:causedupeuple/widgets/article_header_image.dart';
 import 'package:causedupeuple/widgets/article_share_buttons.dart';
 import 'package:causedupeuple/widgets/article_time_posted.dart';
@@ -16,7 +17,9 @@ class ArticlePreviewCard extends StatelessWidget {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
-        onTap: () { /* TODO */ },
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(article: article,)));
+        },
         child: Column(
           children: <Widget>[
             Padding(

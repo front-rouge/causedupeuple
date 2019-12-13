@@ -1,4 +1,3 @@
-import 'package:causedupeuple/widgets/article_preview_card.dart';
 import 'package:causedupeuple/widgets/pagewise_list_article.dart';
 import 'package:flutter/material.dart';
 
