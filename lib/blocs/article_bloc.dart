@@ -32,7 +32,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
     final currentState = state;
     if (event is ArticleFetch && !_hasReachedMax(currentState)) {
       try {
-        if (currentState is InitialArticleState) {
+        if (currentState is InitialArticleState || currentState is ArticleError) {
           final articles = await _fetchPosts(0);
           yield ArticleLoaded(articles: articles, hasReachedMax: false);
         }
@@ -43,7 +43,6 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
           );
         }
       } catch (e) {
-        print(e);
         yield ArticleError();
       }
     }

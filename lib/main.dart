@@ -1,5 +1,8 @@
+import 'package:causedupeuple/blocs/bloc.dart';
 import 'package:causedupeuple/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' show Client;
 
 void main() => runApp(CdpApp());
 
@@ -19,7 +22,10 @@ class CdpApp extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white),
         primaryColor: Colors.red[900],
       ),
-      home: HomeScreen()
+      home: BlocProvider(
+        create: (context) => ArticleBloc(client: Client())..add(ArticleFetch()),
+        child: HomeScreen()
+      )
     );
   }
 }

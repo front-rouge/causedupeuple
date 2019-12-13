@@ -1,4 +1,5 @@
 import 'package:causedupeuple/widgets/article_preview_card.dart';
+import 'package:causedupeuple/widgets/pagewise_list_article.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,19 +22,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView(
-        children: <Widget>[
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-          ArticlePreviewCard(),
-        ],
-      ),
+      body: PagewiseListArticle()
     );
   }
 
