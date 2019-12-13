@@ -1,5 +1,6 @@
 import 'package:causedupeuple/blocs/bloc.dart';
 import 'package:causedupeuple/widgets/article_preview_card.dart';
+import 'package:causedupeuple/widgets/bottom_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ class _PagewiseListArticleState extends State<PagewiseListArticle> {
                 FlatButton(
                   onPressed: () => _articleBloc.add(ArticleFetch()),
                   child: Text("Rééssayer"),
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 )
               ]
             )
@@ -50,9 +51,7 @@ class _PagewiseListArticleState extends State<PagewiseListArticle> {
         return ListView.builder(
           itemBuilder: (context, index) {
             if (index >= state.articles.length) {
-              return Center(
-                child: CircularProgressIndicator()
-              );
+              return BottomLoader();
             }
             return ArticlePreviewCard(article: state.articles[index]);
           },
