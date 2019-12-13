@@ -26,11 +26,12 @@ class ArticlePreviewCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.title,
               ),
             ),
-            ArticleHeaderImage(
-              srcUrl: article.imgUrl,
-              srcWidth: article.imgWidth,
-              srcHeight: article.imgHeight,
-            ),
+            if (article.imgUrl != null)
+              ArticleHeaderImage(
+                srcUrl: article.imgUrl,
+                srcWidth: article.imgWidth,
+                srcHeight: article.imgHeight,
+              ),
             Padding(
               padding: EdgeInsets.only(left: 6.0, right: 6.0),
               child: Column(
