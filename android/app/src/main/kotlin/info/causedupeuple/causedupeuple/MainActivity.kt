@@ -1,4 +1,4 @@
-package com.example.causedupeuple
+package info.causedupeuple.causedupeuple
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
