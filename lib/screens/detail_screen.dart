@@ -66,6 +66,7 @@ class DetailScreen extends StatelessWidget {
                 },
                 padding: EdgeInsets.only(left: 6.0, right: 6.0, bottom: 6.0),
                 linkStyle: TextStyle(color: Theme.of(context).accentColor),
+                defaultTextStyle: Theme.of(context).textTheme.body1,
                 customTextAlign: (dom.Node node) {
                   if (node is dom.Element) {
                     switch (node.localName) {
